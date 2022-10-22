@@ -6,11 +6,22 @@ namespace Full_GRASP_And_SOLID
 {
     public class PopulateCatalogs
     {
-         private  List<Product> productCatalog;
+        private static PopulateCatalogs instance; 
+
+        public static PopulateCatalogs Instance
+        {get 
+        {
+            if(instance == null)
+            {
+                instance =  new PopulateCatalogs();
+            }
+            return instance;
+        }}
+        private  List<Product> productCatalog;
 
         private  List<Equipment> equipmentCatalog;
 
-        public PopulateCatalogs()
+        private PopulateCatalogs()
         {
             productCatalog = new List<Product>();
             equipmentCatalog = new List<Equipment>();
@@ -25,22 +36,22 @@ namespace Full_GRASP_And_SOLID
         }
     
 
-        private  void AddProductToCatalog(string description, double unitCost)
+        public  void AddProductToCatalog(string description, double unitCost)
         {
             productCatalog.Add(new Product(description, unitCost));
         }
 
-        private  void AddEquipmentToCatalog(string description, double hourlyCost)
+        public  void AddEquipmentToCatalog(string description, double hourlyCost)
         {
             equipmentCatalog.Add(new Equipment(description, hourlyCost));
         }
 
-        private  Product ProductAt(int index)
+        public  Product ProductAt(int index)
         {
             return productCatalog[index] as Product;
         }
 
-        private  Equipment EquipmentAt(int index)
+        public  Equipment EquipmentAt(int index)
         {
             return equipmentCatalog[index] as Equipment;
         }

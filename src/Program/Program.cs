@@ -16,7 +16,7 @@ namespace Full_GRASP_And_SOLID
 
         public static void Main(string[] args)
         {
-            PopulateCatalogs catalogo = new PopulateCatalogs();
+            PopulateCatalogs catalogo = PopulateCatalogs.Instance;
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = catalogo.GetProduct("Café con leche");
