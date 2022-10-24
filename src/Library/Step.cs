@@ -28,8 +28,8 @@ namespace Full_GRASP_And_SOLID
         public double GetStepCost()
         {
             return
-                (this.Input.UnitCost * this.Quantity) +
-                (this.Equipment.HourlyCost * this.Time);
+                (this.Input.Cost * this.Quantity) +
+                (this.Equipment.Cost * this.Time);
         }
 
         // Agregado por SRP
